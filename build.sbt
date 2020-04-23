@@ -15,6 +15,5 @@ lazy val root = (project in file("."))
   .enablePlugins(ScalaJSPlugin)
   .settings(
     BintrayRelease.settings,
-    libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "1.0.0",
-    scalacOptions += "-P:scalajs:sjsDefinedByDefault"
+    libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "1.0.0"
   )

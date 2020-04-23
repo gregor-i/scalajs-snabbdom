@@ -20,5 +20,8 @@ libraryDependencies += "com.github.gregor-i" %% "scalajs-snabbdom" % {current-ve
 
 
 ### Changelog
+#### 1.0.1:
+- release for scala.js `1.0`
+
 #### 1.0.0:
 - initial release

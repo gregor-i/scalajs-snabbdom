@@ -7,7 +7,7 @@ import scala.scalajs.js.{Dictionary, |}
 
 case class Node(
     private val sel: String,
-    private val key: SnabbdomFacade.Key = js.undefined,
+    private val key: SnabbdomFacade.Key = (),
     private val classes: Seq[(String, Boolean)] = Seq.empty,
     private val props: Seq[(String, js.Any)] = Seq.empty,
     private val attrs: Seq[(String, String)] = Seq.empty,

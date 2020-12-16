@@ -15,7 +15,7 @@ object Snabbdom {
       styleModule: Boolean = false,
       eventlistenersModule: Boolean = false
   ) =
-    SnabbdomFacade.init(
+    SnabbdomInit(
       js.Array(
           Some(ClassModule).filter(_ => classModule),
           Some(PropsModule).filter(_ => propsModule),

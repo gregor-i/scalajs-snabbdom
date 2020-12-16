@@ -89,7 +89,7 @@ case class Node(
       case elem             => Seq(elem).asInstanceOf[Iterable[Node]]
     }: Iterable[Node])
 
-  def toVNode: VNode = SnabbdomFacade.h(
+  def toVNode: VNode = SnabbdomH(
     sel = sel,
     props = new Data(
       key = key,

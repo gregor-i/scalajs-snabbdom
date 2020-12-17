@@ -1,23 +1,21 @@
 package snabbdom
 
-import snabbdom.SnabbdomFacade.Child
-
 import scala.scalajs.js
 import scala.scalajs.js.{Dictionary, |}
 
 case class Node(
     private val sel: String,
-    private val key: SnabbdomFacade.Key = (),
+    private val key: Key = (),
     private val classes: Seq[(String, Boolean)] = Seq.empty,
     private val props: Seq[(String, js.Any)] = Seq.empty,
     private val attrs: Seq[(String, String)] = Seq.empty,
     private val dataset: Seq[(String, String)] = Seq.empty,
     private val styles: Seq[(String, String)] = Seq.empty,
-    private val events: Seq[(String, SnabbdomFacade.Eventlistener)] = Seq.empty,
-    private val hooks: Seq[(String, SnabbdomFacade.Hook)] = Seq.empty,
-    private val children: Seq[Child] = Seq.empty
+    private val events: Seq[(String, Eventlistener)] = Seq.empty,
+    private val hooks: Seq[(String, Hook)] = Seq.empty,
+    private val children: Seq[String | Node] = Seq.empty
 ) {
-  def key(key: SnabbdomFacade.Key): Node =
+  def key(key: Key): Node =
     copy(key = key)
 
   def `class`(className: String, active: Boolean): Node =
@@ -59,29 +57,50 @@ case class Node(
   def styles(styles: Seq[(String, String)]): Node =
     copy(styles = this.styles ++ styles)
 
-  def event(on: String, listener: SnabbdomFacade.Eventlistener): Node =
+  def event[E <: Event](on: String, listener: js.Function1[E, Unit]): Node =
     copy(events = events :+ (on -> listener))
 
-  def events(events: Seq[(String, SnabbdomFacade.Eventlistener)]): Node =
+  def events(events: Seq[(String, Eventlistener)]): Node =
     copy(events = this.events ++ events)
 
-  def hook(hookName: String, hook: SnabbdomFacade.Hook): Node =
-    copy(hooks = hooks :+ (hookName -> hook))
+  def hookInit(hook: js.Function1[VNode, Unit]): Node =
+    copy(hooks = hooks :+ ("init" -> hook))
 
-  def hooks(hooks: Seq[(String, SnabbdomFacade.Hook)]): Node =
+  def hookCreate(hook: js.Function2[VNode, VNode, Unit]): Node =
+    copy(hooks = hooks :+ ("create" -> hook))
+
+  def hookInsert(hook: js.Function1[VNode, Unit]): Node =
+    copy(hooks = hooks :+ ("insert" -> hook))
+
+  def hookPrepatch(hook: js.Function2[VNode, VNode, Unit]): Node =
+    copy(hooks = hooks :+ ("prepatch" -> hook))
+
+  def hookUpdate(hook: js.Function2[VNode, VNode, Unit]): Node =
+    copy(hooks = hooks :+ ("update" -> hook))
+
+  def hookPostpatch(hook: js.Function2[VNode, VNode, Unit]): Node =
+    copy(hooks = hooks :+ ("postpatch" -> hook))
+
+  def hookDestroy(hook: js.Function1[VNode, Unit]): Node =
+    copy(hooks = hooks :+ ("destroy" -> hook))
+
+  def hookRemove(hook: js.Function2[VNode, js.Function0[Unit], Unit]): Node =
+    copy(hooks = hooks :+ ("remove" -> hook))
+
+  def hooks(hooks: Seq[(String, Hook)]): Node =
     copy(hooks = this.hooks ++ hooks)
 
   def text(child: String): Node =
     copy(children = children :+ child)
 
   def child(node: Node): Node =
-    copy(children = children :+ node.toVNode)
+    copy(children = children :+ node)
 
   def child(nodes: Iterable[Node]): Node =
-    copy(children = children ++ nodes.map(_.toVNode))
+    copy(children = children ++ nodes.asInstanceOf[Iterable[String | Node]])
 
   def childOptional(nodes: Option[Node]): Node =
-    copy(children = children ++ nodes.map(_.toVNode))
+    copy(children = children ++ nodes.asInstanceOf[Option[String | Node]])
 
   def children(nodes: (Node | Iterable[Node])*): Node =
     child(nodes.flatMap[Node] {
@@ -101,6 +120,9 @@ case class Node(
       on = Dictionary(events: _*),
       hook = Dictionary(hooks: _*)
     ),
-    children = js.Array(children: _*)
+    children = js.Array(children: _*).map { x =>
+      if (x.isInstanceOf[String]) x.asInstanceOf[String]
+      else x.asInstanceOf[Node].toVNode
+    }
   )
 }

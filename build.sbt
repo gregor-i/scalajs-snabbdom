@@ -15,5 +15,8 @@ lazy val root = (project in file("."))
   .enablePlugins(ScalaJSPlugin)
   .settings(
     BintrayRelease.settings,
-    libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "1.0.0"
+    libraryDependencies += "org.scala-js"  %%% "scalajs-dom" % "1.1.0",
+    libraryDependencies += "org.scalatest" %%% "scalatest"   % "3.2.3" % Test,
+    testOptions += Tests.Argument(TestFrameworks.ScalaTest, "-oD"),
+    scalaJSLinkerConfig in Test ~= { _.withModuleKind(ModuleKind.ESModule) }
   )

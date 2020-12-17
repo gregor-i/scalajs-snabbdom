@@ -1,10 +1,6 @@
 package snabbdom
 
-import org.scalajs.dom.Event
-import snabbdom.SnabbdomFacade.Child
-
 import scala.scalajs.js
-import scala.scalajs.js.{Dictionary, |}
 
 object Snabbdom {
   def init(
@@ -26,13 +22,4 @@ object Snabbdom {
         )
         .collect { case Some(module) => module }
     )
-
-  def event(f: Event => Unit): SnabbdomFacade.Eventlistener = f: js.Function1[Event, Unit]
-
-  def specificEvent[E <: Event](f: E => Unit): SnabbdomFacade.Eventlistener =
-    f: js.Function1[E, Unit]
-
-  def hook(f: (VNode, VNode) => Unit): SnabbdomFacade.Hook = f: js.Function2[VNode, VNode, Unit]
-
-  def hook(f: VNode => Unit): SnabbdomFacade.Hook = f: js.Function1[VNode, Unit]
 }

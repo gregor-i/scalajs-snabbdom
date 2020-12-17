@@ -20,6 +20,18 @@ libraryDependencies += "com.github.gregor-i" %% "scalajs-snabbdom" % {current-ve
 
 
 ### Changelog
+
+#### 1.2:
+- dependency upgrades
+- reworked api
+    - Hooks are now typed
+    - Node.event allows setting of a type parameter
+    - Removed Snabbdom.hook and Snabbdom.event
+    - Added Syntax object for easy conversion from Selectors to Nodes
+
+#### 1.1:
+- upgraded api for snabbdom `2.8`
+
 #### 1.0.1:
 - release for scala.js `1.0`
 

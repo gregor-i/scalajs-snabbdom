@@ -21,6 +21,12 @@ libraryDependencies += "com.github.gregor-i" %% "scalajs-snabbdom" % {current-ve
 
 ### Changelog
 
+### 1.2.2:
+- moved components into this project
+
+### 1.2.1:
+- moved toasts into this project 
+
 #### 1.2:
 - dependency upgrades
 - reworked api

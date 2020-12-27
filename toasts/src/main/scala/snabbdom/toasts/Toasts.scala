@@ -1,4 +1,4 @@
-package toasts
+package snabbdom.toasts
 
 import scala.concurrent.{ExecutionContext, Future}
 import scala.util.Try

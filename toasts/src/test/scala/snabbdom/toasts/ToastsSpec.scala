@@ -1,4 +1,4 @@
-package toasts
+package snabbdom.toasts
 
 import org.scalatest.funsuite.AnyFunSuite
 import testUtil.JsDom

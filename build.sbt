@@ -30,6 +30,16 @@ lazy val toasts = (project in file("toasts"))
     scalaJSLinkerConfig in Test ~= { _.withModuleKind(ModuleKind.ESModule) }
   )
 
+lazy val components = (project in file("components"))
+  .settings(name := "snabbdom-components")
+  .enablePlugins(ScalaJSPlugin)
+  .dependsOn(snabbdom % "compile->compile;test->test")
+  .settings(
+    BintrayRelease.settings,
+    scalaTest,
+    scalaJSLinkerConfig in Test ~= { _.withModuleKind(ModuleKind.ESModule) }
+  )
+
 def scalaTest = Seq(
   libraryDependencies += "org.scalatest" %%% "scalatest"   % "3.2.3" % Test,
   testOptions += Tests.Argument(TestFrameworks.ScalaTest, "-oD"),

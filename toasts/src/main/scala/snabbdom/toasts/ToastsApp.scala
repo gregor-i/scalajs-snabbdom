@@ -1,4 +1,4 @@
-package toasts
+package snabbdom.toasts
 
 import org.scalajs.dom
 import snabbdom.Syntax._

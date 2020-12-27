@@ -1,4 +1,4 @@
-package toasts
+package snabbdom.toasts
 
 sealed abstract class ToastType(val `class`: String, val iconClasses: Seq[String])
 

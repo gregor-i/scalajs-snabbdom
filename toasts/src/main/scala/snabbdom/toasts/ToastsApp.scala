@@ -37,6 +37,19 @@ private[toasts] object ToastsApp {
         case toast: SyncToast     => renderSyncToast(toast)
         case toast: AsyncToast[_] => renderFutureToast(toast)
       })
+      .styles(
+        Seq(
+          "position"       -> "fixed",
+          "left"           -> "0",
+          "right"          -> "0",
+          "bottom"         -> "0",
+          "display"        -> "flex",
+          "flex-direction" -> "column",
+          "align-items"    -> "center",
+          "pointer-events" -> "none",
+          "z-index"        -> "50"
+        )
+      )
       .toVNode
 
     node match {
@@ -65,7 +78,6 @@ private[toasts] object ToastsApp {
         notification(toastType, text)
           .key(toast.id)
           .child("button.delete".event[Event]("click", _ => removeToast(toast.id)))
-          .style("transition", "0.5s")
           .hookPostpatch { (vnode, _) =>
             dom.window.setTimeout(() => vnode.elm.get.style.opacity = "0", 2000)
             dom.window.setTimeout(() => removeToast(toast.id), 2500)
@@ -76,7 +88,6 @@ private[toasts] object ToastsApp {
     notification(toast.toastType, toast.text)
       .key(toast.id)
       .child("button.delete".event[Event]("click", _ => removeToast(toast.id)))
-      .style("transition", "0.5s")
       .hookInsert { vnode =>
         dom.window.setTimeout(() => vnode.elm.get.style.opacity = "0", 2000)
         dom.window.setTimeout(() => removeToast(toast.id), 2500)
@@ -86,6 +97,13 @@ private[toasts] object ToastsApp {
   private def notification(toastType: ToastType, text: String): Node =
     "div.notification"
       .classes(toastType.`class`)
+      .styles(
+        Seq(
+          "max-width"  -> "600px",
+          "margin"     -> "8px",
+          "transition" -> "0.5s"
+        )
+      )
       .child(
         "div.media"
           .child(

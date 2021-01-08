@@ -21,6 +21,10 @@ libraryDependencies += "com.github.gregor-i" %% "scalajs-snabbdom" % {current-ve
 
 ### Changelog
 
+### 1.2.4:
+- added more Syntax Sugar
+- enhanced Modal component with background setting
+
 ### 1.2.2:
 - moved components into this project
 

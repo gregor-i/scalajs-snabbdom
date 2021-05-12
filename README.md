@@ -14,8 +14,8 @@ but the project is archived and seems not to be maintained anymore. Also `raquo/
 
 To use the library extend your sbt build with:
 ```sbt
-resolvers += Resolver.bintrayRepo("gregor-i", "maven")
-libraryDependencies += "com.github.gregor-i" %% "scalajs-snabbdom" % {current-version}
+resolvers in ThisBuild += "jitpack" at "https://jitpack.io"
+libraryDependencies += "com.github.gregor-i.scalajs-snabbdom" %% "scalajs-snabbdom" % {current-version}
 ```
 
 

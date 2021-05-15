@@ -1,5 +1,5 @@
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/gregor-i/scalajs-snabbdom/ci)
-[![Release](https://jitpack.io/v/gregor-i/scalajs-snabbdom.svg)](https://jitpack.io/#gregor-i/scalajs-snabbdom)
+[![JitPack](https://img.shields.io/jitpack/v/github/gregor-i/scalajs-snabbdom)](https://jitpack.io/#gregor-i/scalajs-snabbdom)
 
 # scalajs-snabbdom
 

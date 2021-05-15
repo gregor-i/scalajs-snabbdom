@@ -23,6 +23,9 @@ libraryDependencies += "com.github.gregor-i.scalajs-snabbdom" %% "scalajs-snabbd
 
 ### Changelog
 
+### 1.2.5:
+- upgraded to snabbdom 3.0
+
 ### 1.2.4:
 - added more Syntax Sugar
 - enhanced Modal component with background setting

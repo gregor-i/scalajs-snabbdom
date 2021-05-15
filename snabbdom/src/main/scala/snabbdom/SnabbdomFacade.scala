@@ -7,40 +7,21 @@ import scala.scalajs.js.annotation.{JSGlobal, JSImport}
 import scala.scalajs.js.{Dictionary, UndefOr, |}
 
 @js.native
-@JSImport("snabbdom/h", name = "h")
-private object SnabbdomH extends js.Object {
-  def apply(sel: String, props: Data, children: js.Array[String | VNode]): VNode = js.native
+@JSImport("snabbdom", name = JSImport.Default)
+private object SnabbdomFacade extends js.Object {
+  def h(sel: String, props: Data, children: js.Array[String | VNode]): VNode = js.native
+
+  def init(modules: js.Array[Module]): PatchFunction = js.native
+
+  val classModule: Module = js.native
+  val attributesModule: Module = js.native
+  val datasetModule: Module = js.native
+  val eventListenersModule: Module = js.native
+  val propsModule: Module = js.native
+  val styleModule: Module = js.native
 }
 
-@js.native
-@JSImport("snabbdom/init", name = "init")
-private object SnabbdomInit extends js.Object {
-  def apply(modules: js.Array[_]): PatchFunction = js.native
-}
-
-@JSImport("snabbdom/modules/class", name = "classModule")
-@js.native
-private object ClassModule extends js.Object
-
-@JSImport("snabbdom/modules/attributes", name = "attributesModule")
-@js.native
-private object AttrsModule extends js.Object
-
-@JSImport("snabbdom/modules/dataset", name = "datasetModule")
-@js.native
-private object DatasetModule extends js.Object
-
-@JSImport("snabbdom/modules/eventlisteners", name = "eventListenersModule")
-@js.native
-private object EventListenerModule extends js.Object
-
-@JSImport("snabbdom/modules/props", name = "propsModule")
-@js.native
-private object PropsModule extends js.Object
-
-@JSImport("snabbdom/modules/style", name = "styleModule")
-@js.native
-private object StyleModule extends js.Object
+trait Module extends js.Object
 
 @JSGlobal
 @js.native

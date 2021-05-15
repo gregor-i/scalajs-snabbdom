@@ -10,15 +10,15 @@ object Snabbdom {
       datasetModule: Boolean = false,
       styleModule: Boolean = false,
       eventlistenersModule: Boolean = false
-  ) =
-    SnabbdomInit(
+  ): PatchFunction =
+    SnabbdomFacade.init(
       js.Array(
-          Some(ClassModule).filter(_ => classModule),
-          Some(PropsModule).filter(_ => propsModule),
-          Some(AttrsModule).filter(_ => attributesModule),
-          Some(DatasetModule).filter(_ => datasetModule),
-          Some(StyleModule).filter(_ => styleModule),
-          Some(EventListenerModule).filter(_ => eventlistenersModule)
+          Some(SnabbdomFacade.classModule).filter(_ => classModule),
+          Some(SnabbdomFacade.propsModule).filter(_ => propsModule),
+          Some(SnabbdomFacade.attributesModule).filter(_ => attributesModule),
+          Some(SnabbdomFacade.datasetModule).filter(_ => datasetModule),
+          Some(SnabbdomFacade.styleModule).filter(_ => styleModule),
+          Some(SnabbdomFacade.eventListenersModule).filter(_ => eventlistenersModule)
         )
         .collect { case Some(module) => module }
     )

@@ -14,7 +14,6 @@ lazy val snabbdom = (project in file("snabbdom"))
   .settings(name := "scalajs-snabbdom")
   .enablePlugins(ScalaJSPlugin)
   .settings(
-    BintrayRelease.settings,
     libraryDependencies += "org.scala-js"  %%% "scalajs-dom" % "1.1.0",
     scalaTest,
     scalaJSLinkerConfig in Test ~= { _.withModuleKind(ModuleKind.ESModule) }
@@ -25,7 +24,6 @@ lazy val toasts = (project in file("toasts"))
   .enablePlugins(ScalaJSPlugin)
   .dependsOn(snabbdom % "compile->compile;test->test")
   .settings(
-    BintrayRelease.settings,
     scalaTest,
     scalaJSLinkerConfig in Test ~= { _.withModuleKind(ModuleKind.ESModule) }
   )
@@ -35,7 +33,6 @@ lazy val components = (project in file("components"))
   .enablePlugins(ScalaJSPlugin)
   .dependsOn(snabbdom % "compile->compile;test->test")
   .settings(
-    BintrayRelease.settings,
     scalaTest,
     scalaJSLinkerConfig in Test ~= { _.withModuleKind(ModuleKind.ESModule) }
   )

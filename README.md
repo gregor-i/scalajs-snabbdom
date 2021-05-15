@@ -1,4 +1,4 @@
-[![Release](https://jitpack.io/v/gregor-i/math-parser.svg)](https://jitpack.io/#gregor-i/scalajs-snabbdom)
+[![Release](https://jitpack.io/v/gregor-i/scalajs-snabbdom.svg)](https://jitpack.io/#gregor-i/scalajs-snabbdom)
 
 # scalajs-snabbdom
 

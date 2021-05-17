@@ -1,7 +1,9 @@
 package snabbdom.components
 
 import snabbdom.{Event, Node}
-import snabbdom.Syntax._
+import snabbdom.Syntax.given
+import snabbdom.Syntax.*
+import scala.language.implicitConversions
 
 object Modal {
   def apply(closeAction: Option[Event => Unit] = None, background: Option[Node] = None)(content: Node*): Node =

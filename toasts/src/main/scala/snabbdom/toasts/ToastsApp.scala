@@ -1,7 +1,9 @@
 package snabbdom.toasts
 
 import org.scalajs.dom
-import snabbdom.Syntax._
+import snabbdom.Syntax.stringAsSelector
+import scala.language.implicitConversions
+
 import snabbdom.{Event, Node, PatchFunction, Snabbdom, VNode}
 
 import scala.concurrent.{ExecutionContext, Future}

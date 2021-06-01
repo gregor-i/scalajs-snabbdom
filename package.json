@@ -4,6 +4,6 @@
   },
   "type": "module",
   "devDependencies": {
-    "jsdom": "^16.5.3"
+    "jsdom": "^16.6.0"
   }
 }

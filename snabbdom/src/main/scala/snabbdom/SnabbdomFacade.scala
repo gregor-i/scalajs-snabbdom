@@ -7,7 +7,7 @@ import scala.scalajs.js.annotation.{JSGlobal, JSImport}
 import scala.scalajs.js.{Dictionary, UndefOr, |}
 
 @js.native
-@JSImport("snabbdom", name = JSImport.Default)
+@JSImport("snabbdom", name = JSImport.Namespace)
 private object SnabbdomFacade extends js.Object {
   def h(sel: String, props: Data, children: js.Array[String | VNode]): VNode = js.native
 

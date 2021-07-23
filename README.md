@@ -24,6 +24,9 @@ libraryDependencies += "com.github.gregor-i.scalajs-snabbdom" %% "scalajs-snabbd
 
 ### Changelog
 
+### 1.2.6:
+- fixed import of snabbdom module
+
 ### 1.2.5:
 - upgraded to snabbdom 3.0
 

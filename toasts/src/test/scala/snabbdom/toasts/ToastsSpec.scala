@@ -25,5 +25,4 @@ class ToastsSpec extends AnyFunSuite {
       case _           => (ToastType.Danger, "unexpected failure")
     }
   }
-
 }

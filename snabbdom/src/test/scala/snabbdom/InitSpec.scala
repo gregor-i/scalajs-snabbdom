@@ -13,16 +13,16 @@ class InitSpec extends AnyFunSuite {
   test("initialize with all build-in modules") {
     val patch = Snabbdom.init(
       classModule = true,
-        propsModule= true,
-        attributesModule= true,
-        datasetModule= true,
-        styleModule= true,
-        eventlistenersModule= true
+      propsModule = true,
+      attributesModule = true,
+      datasetModule = true,
+      styleModule = true,
+      eventlistenersModule = true
     )
     assert(typeOf(patch) == "function")
   }
 
-  test("all build-in modules are defined"){
+  test("all build-in modules are defined") {
     def moduleIsDefined(module: Module): Boolean =
       module.asInstanceOf[UndefOr[_]].isDefined
 

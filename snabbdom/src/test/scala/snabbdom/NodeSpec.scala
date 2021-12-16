@@ -27,7 +27,6 @@ class NodeSpec extends AnyFunSuite {
   test("child with iterable") {
     val vnode = parent.child(Seq(Node("img"), Node("span"))).toVNode
 
-
     assert(dynamic(vnode).children.length == dynamic(2))
     assert(dynamic(vnode).children.selectDynamic("0").sel == dynamic("img"))
     assert(dynamic(vnode).children.selectDynamic("1").sel == dynamic("span"))
@@ -35,20 +34,22 @@ class NodeSpec extends AnyFunSuite {
 
   test("childOptional with None") {
     val vnode = parent.childOptional(None).toVNode
-    assert(dynamic(vnode).children.length ==dynamic( 0))
+    assert(dynamic(vnode).children.length == dynamic(0))
   }
 
-    test("childOptional with Some") {
+  test("childOptional with Some") {
     val vnode = parent.childOptional(Some(Node("img"))).toVNode
-    assert(dynamic(vnode).children.length ==dynamic( 1))
-    assert(dynamic(vnode).children.selectDynamic("0").sel ==dynamic( "img"))
+    assert(dynamic(vnode).children.length == dynamic(1))
+    assert(dynamic(vnode).children.selectDynamic("0").sel == dynamic("img"))
   }
 
   test("children") {
-    val vnode = parent.children(
-      Seq(Node("img")),
-      Node("span")
-    ).toVNode
+    val vnode = parent
+      .children(
+        Seq(Node("img")),
+        Node("span")
+      )
+      .toVNode
 
     assert(dynamic(vnode).children.length == dynamic(2))
     assert(dynamic(vnode).children.selectDynamic("0").sel == dynamic("img"))

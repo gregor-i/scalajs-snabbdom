@@ -13,12 +13,12 @@ private object SnabbdomFacade extends js.Object {
 
   def init(modules: js.Array[Module]): PatchFunction = js.native
 
-  val classModule: Module = js.native
-  val attributesModule: Module = js.native
-  val datasetModule: Module = js.native
+  val classModule: Module          = js.native
+  val attributesModule: Module     = js.native
+  val datasetModule: Module        = js.native
   val eventListenersModule: Module = js.native
-  val propsModule: Module = js.native
-  val styleModule: Module = js.native
+  val propsModule: Module          = js.native
+  val styleModule: Module          = js.native
 }
 
 trait Module extends js.Object

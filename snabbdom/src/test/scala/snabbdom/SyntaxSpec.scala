@@ -3,18 +3,18 @@ package snabbdom
 import org.scalatest.funsuite.AnyFunSuite
 import snabbdom.Syntax._
 
-class SyntaxSpec extends AnyFunSuite{
-  test("convert strings to selectors"){
+class SyntaxSpec extends AnyFunSuite {
+  test("convert strings to selectors") {
     val node: Node = "div"
 
     assert(node == Node("div"))
   }
 
-  test("allows direct usage of setter methods"){
+  test("allows direct usage of setter methods") {
     assert("div".classes("bold") == Node("div").classes("bold"))
   }
 
-  test("allows direct usage of extended methods"){
+  test("allows direct usage of extended methods") {
     assert("div".modify(_.classes("bold")) == Node("div").classes("bold"))
   }
 

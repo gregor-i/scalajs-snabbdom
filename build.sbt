@@ -6,15 +6,15 @@ ThisBuild / version := {
     .getOrElse("SNAPSHOT")
 }
 ThisBuild / organization := "com.github.gregor-i"
-ThisBuild / scalaVersion := "2.13.1"
-ThisBuild / crossScalaVersions := Seq("2.13.1")
+ThisBuild / scalaVersion := "2.13.7"
+ThisBuild / crossScalaVersions := Seq("2.13.7")
 crossScalaVersions := Nil
 
 lazy val snabbdom = (project in file("snabbdom"))
   .settings(name := "scalajs-snabbdom")
   .enablePlugins(ScalaJSPlugin)
   .settings(
-    libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "1.1.0",
+    libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "1.2.0",
     scalaTest,
     Test / scalaJSLinkerConfig ~= { _.withModuleKind(ModuleKind.ESModule) }
   )
@@ -38,6 +38,6 @@ lazy val components = (project in file("components"))
   )
 
 def scalaTest = Seq(
-  libraryDependencies += "org.scalatest" %%% "scalatest" % "3.2.9" % Test,
+  libraryDependencies += "org.scalatest" %%% "scalatest" % "3.2.10" % Test,
   testOptions += Tests.Argument(TestFrameworks.ScalaTest, "-oD")
 )

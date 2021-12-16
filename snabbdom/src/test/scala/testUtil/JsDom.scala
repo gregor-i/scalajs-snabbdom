@@ -14,7 +14,7 @@ object JsDomFacade extends js.Object {
   }
 }
 
-object JsDom{
+object JsDom {
   def setupSimulatedDom(): Unit = {
     val simulatedContext = new JsDomFacade.JSDOM("<!DOCTYPE html><p>Hello world</p>")
 

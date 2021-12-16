@@ -6,7 +6,7 @@ final class EnrichNode(val node: Node) extends AnyVal {
   def maybeModify[A](option: Option[A])(setter: (Node, A) => Node): Node =
     option match {
       case Some(value) => setter(node, value)
-      case None => node
+      case None        => node
     }
 
   def maybeModify(condition: Boolean)(set: Node => Node): Node =
@@ -14,8 +14,8 @@ final class EnrichNode(val node: Node) extends AnyVal {
 }
 
 trait Syntax {
-  implicit def stringAsSelector(sel: String): Node = Node(sel)
-  implicit def enrichNode(node: Node): EnrichNode = new EnrichNode(node)
+  implicit def stringAsSelector(sel: String): Node   = Node(sel)
+  implicit def enrichNode(node: Node): EnrichNode    = new EnrichNode(node)
   implicit def enrichString(sel: String): EnrichNode = new EnrichNode(Node(sel = sel))
 }
 

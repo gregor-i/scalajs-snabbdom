@@ -14,7 +14,7 @@ lazy val snabbdom = (project in file("snabbdom"))
   .settings(name := "scalajs-snabbdom")
   .enablePlugins(ScalaJSPlugin)
   .settings(
-    libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "1.2.0",
+    libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "2.0.0",
     scalaTest,
     Test / scalaJSLinkerConfig ~= { _.withModuleKind(ModuleKind.ESModule) }
   )

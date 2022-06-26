@@ -114,7 +114,7 @@ private[toasts] object ToastsApp {
       )
 
   def addSyncToast(text: String, toastType: ToastType): Int = {
-    val id    = { counter += 1; counter }
+    val id = { counter += 1; counter }
     val toast = SyncToast(id, toastType, text)
     toasts = toast :: toasts
     render()
@@ -127,7 +127,7 @@ private[toasts] object ToastsApp {
       onComplete: Try[A] => (ToastType, String),
       ex: ExecutionContext
   ): Int = {
-    val id    = { counter += 1; counter }
+    val id = { counter += 1; counter }
     val toast = AsyncToast(id, progressText, process, onComplete, ex)
     toasts = toast :: toasts
     render()

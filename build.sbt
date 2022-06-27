@@ -6,8 +6,8 @@ ThisBuild / version := {
     .getOrElse("SNAPSHOT")
 }
 ThisBuild / organization := "com.github.gregor-i"
-ThisBuild / scalaVersion := "2.13.7"
-ThisBuild / crossScalaVersions := Seq("2.13.7")
+ThisBuild / scalaVersion := "2.13.8"
+ThisBuild / crossScalaVersions := Seq("2.13.8")
 crossScalaVersions := Nil
 
 lazy val snabbdom = (project in file("snabbdom"))
@@ -38,6 +38,6 @@ lazy val components = (project in file("components"))
   )
 
 def scalaTest = Seq(
-  libraryDependencies += "org.scalatest" %%% "scalatest" % "3.2.10" % Test,
+  libraryDependencies += "org.scalatest" %%% "scalatest" % "3.2.12" % Test,
   testOptions += Tests.Argument(TestFrameworks.ScalaTest, "-oD")
 )

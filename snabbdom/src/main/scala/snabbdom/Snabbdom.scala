@@ -13,13 +13,12 @@ object Snabbdom {
   ): PatchFunction =
     SnabbdomFacade.init(
       js.Array(
-          Some(SnabbdomFacade.classModule).filter(_ => classModule),
-          Some(SnabbdomFacade.propsModule).filter(_ => propsModule),
-          Some(SnabbdomFacade.attributesModule).filter(_ => attributesModule),
-          Some(SnabbdomFacade.datasetModule).filter(_ => datasetModule),
-          Some(SnabbdomFacade.styleModule).filter(_ => styleModule),
-          Some(SnabbdomFacade.eventListenersModule).filter(_ => eventlistenersModule)
-        )
-        .collect { case Some(module) => module }
+        Some(SnabbdomFacade.classModule).filter(_ => classModule),
+        Some(SnabbdomFacade.propsModule).filter(_ => propsModule),
+        Some(SnabbdomFacade.attributesModule).filter(_ => attributesModule),
+        Some(SnabbdomFacade.datasetModule).filter(_ => datasetModule),
+        Some(SnabbdomFacade.styleModule).filter(_ => styleModule),
+        Some(SnabbdomFacade.eventListenersModule).filter(_ => eventlistenersModule)
+      ).collect { case Some(module) => module }
     )
 }

@@ -6,8 +6,8 @@ ThisBuild / version := {
     .getOrElse("SNAPSHOT")
 }
 ThisBuild / organization := "com.github.gregor-i"
-ThisBuild / scalaVersion := "2.13.10"
-ThisBuild / crossScalaVersions := Seq("2.13.10")
+ThisBuild / scalaVersion := "2.13.11"
+ThisBuild / crossScalaVersions := Seq("2.13.11")
 crossScalaVersions := Nil
 
 lazy val snabbdom = (project in file("snabbdom"))

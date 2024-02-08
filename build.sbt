@@ -38,6 +38,6 @@ lazy val components = (project in file("components"))
   )
 
 def scalaTest = Seq(
-  libraryDependencies += "org.scalatest" %%% "scalatest" % "3.2.14" % Test,
+  libraryDependencies += "org.scalatest" %%% "scalatest" % "3.2.18" % Test,
   testOptions += Tests.Argument(TestFrameworks.ScalaTest, "-oD")
 )
